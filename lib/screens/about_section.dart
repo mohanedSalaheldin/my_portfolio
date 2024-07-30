@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:my_portfolio/constants.dart';
 import 'package:my_portfolio/responsive.dart';
+import 'package:my_portfolio/widgets/auto_slide_text.dart';
 import 'package:my_portfolio/widgets/defualt_app_button.dart';
 
 class AboutSection extends StatelessWidget {
@@ -12,26 +13,31 @@ class AboutSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Responsive.isTablet(context)
+    return ResponsiveWidget.isTablet(context)
         ? const SizedBox(
             // height: 500,
             child: Column(
               children: [
                 FirstHalfWithTexts(),
-                SizedBox(height: appDefaultPadding),
+                SizedBox(height: appDefaultPadding * 4),
                 SecondHalfWithAvatar(),
               ],
             ),
           )
         : const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Flexible(
+              Expanded(
+                flex: 1,
                 child: FirstHalfWithTexts(),
               ),
-              // SizedBox(width: appDefaultPadding / 2),
-              Flexible(
-                child: SecondHalfWithAvatar(),
+              SizedBox(width: appDefaultPadding / 2),
+              Expanded(
+                flex: 1,
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: SecondHalfWithAvatar(),
+                ),
               ),
             ],
           );
@@ -45,14 +51,33 @@ class SecondHalfWithAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 300,
-      child: SvgPicture.asset(
-        fit: BoxFit.contain,
-        'assets/images/image.svg',
-        semanticsLabel: 'Acme Logo',
-      ),
-    );
+    return ResponsiveWidget.isMobile(context)
+        ? SizedBox(
+            // color: Colors.blueGrey,
+
+            height: 150,
+            child: SvgPicture.asset(
+              alignment: ResponsiveWidget.isTablet(context)
+                  ? Alignment.center
+                  : Alignment.centerRight,
+              fit: BoxFit.contain,
+              'assets/images/image.svg',
+              semanticsLabel: 'Acme Logo',
+            ),
+          )
+        : SizedBox(
+            // color: Colors.blueGrey,
+
+            height: 300,
+            child: SvgPicture.asset(
+              alignment: ResponsiveWidget.isTablet(context)
+                  ? Alignment.center
+                  : Alignment.centerRight,
+              fit: BoxFit.contain,
+              'assets/images/image.svg',
+              semanticsLabel: 'Acme Logo',
+            ),
+          );
   }
 }
 
@@ -63,8 +88,9 @@ class FirstHalfWithTexts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: 380,
+      height: ResponsiveWidget.isMobileLarge(context) ? 440 : 370,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,10 +103,12 @@ class FirstHalfWithTexts extends StatelessWidget {
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Text(
               'Welcome to My Portfolio website!',
-              style: Theme.of(context).textTheme.bodySmall,
+              style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  fontSize:
+                      ResponsiveWidget.isMobileLarge(context) ? 12.0 : 16.0),
             ),
           ),
-          Responsive.isMobileLarge(context)
+          width < 1100
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,19 +116,12 @@ class FirstHalfWithTexts extends StatelessWidget {
                     Text(
                       'Hey folks, I\'m ',
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            fontSize:
-                                Responsive.isMobileLarge(context) ? 34.0 : 38.0,
+                            fontSize: ResponsiveWidget.isMobileLarge(context)
+                                ? 34.0
+                                : 38.0,
                           ),
                     ),
-                    Text(
-                      'Mohaned!',
-                      textAlign: TextAlign.start,
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: HexColor('#ffc107'),
-                            fontSize:
-                                Responsive.isMobileLarge(context) ? 34.0 : 38.0,
-                          ),
-                    ),
+                    AutoSlideText(),
                   ],
                 )
               : Row(
@@ -113,19 +134,11 @@ class FirstHalfWithTexts extends StatelessWidget {
                             //     Responsive.isMobileLarge(context) ? 30.0 : 38.0,
                           ),
                     ),
-                    Text(
-                      'Mohaned!',
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: HexColor('#ffc107'),
-                            fontSize: 36.0,
-                            // fontSize:
-                            //     Responsive.isMobileLarge(context) ? 30.0 : 38.0,
-                          ),
-                    ),
+                    AutoSlideText(),
                   ],
                 ),
           Text(
-            Responsive.isTablet(context)
+            ResponsiveWidget.isTablet(context)
                 ? 'Building a successful product is a challenge. I am highly energetic in userexperience design, interfaces and web development.'
                 : 'Building a successful product is a challenge. I am highly energetic in user experience design, interfaces and web development.',
             style: Theme.of(context).textTheme.bodySmall!.copyWith(
@@ -133,7 +146,7 @@ class FirstHalfWithTexts extends StatelessWidget {
                 ),
           ),
           const SizedBox(height: appDefaultPadding),
-          Responsive.isTablet(context)
+          ResponsiveWidget.isTablet(context)
               ? Column(
                   children: [
                     DefualtAppButton(

@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -5,10 +6,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:my_portfolio/constants.dart';
 import 'package:my_portfolio/responsive.dart';
+import 'package:my_portfolio/widgets/auto_slide_text.dart';
 import 'package:my_portfolio/widgets/defualt_app_button.dart';
 
 import '../widgets/hover_text_button.dart';
 import 'about_section.dart';
+import 'projects_section.dart';
 
 class LayoutScreen extends StatelessWidget {
   const LayoutScreen({super.key});
@@ -16,10 +19,11 @@ class LayoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Responsive.isTablet(context)
+      drawer: ResponsiveWidget.isTablet(context)
           ? const Drawer(
               child: Column(
                 children: [
+                  SizedBox(height: appDefaultPadding * 2),
                   HoverTextButton(text: 'About'),
                   SizedBox(height: appDefaultPadding * 2),
                   HoverTextButton(text: 'Projects'),
@@ -38,19 +42,34 @@ class LayoutScreen extends StatelessWidget {
             buildAppBar(context),
           ];
         },
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: Responsive.isMobileLarge(context)
-                    ? appDefaultPadding * 2
-                    : appDefaultPadding * 4),
-            child: const Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: appDefaultPadding * 4),
-                AboutSection(),
-              ],
+        body: Container(
+          constraints: const BoxConstraints(maxWidth: 1440),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: ResponsiveWidget.isTablet(context)
+                      ? appDefaultPadding * 2
+                      : appDefaultPadding * 4),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(
+                      height: ResponsiveWidget.isMobileLarge(context)
+                          ? appDefaultPadding * 3
+                          : appDefaultPadding * 6),
+                  const AboutSection(),
+                  SizedBox(
+                      height: ResponsiveWidget.isMobileLarge(context)
+                          ? appDefaultPadding * 3
+                          : appDefaultPadding * 6),
+                  const ProjectsSection(),
+                  SizedBox(
+                      height: ResponsiveWidget.isMobileLarge(context)
+                          ? appDefaultPadding * 3
+                          : appDefaultPadding * 6),
+                ],
+              ),
             ),
           ),
         ),
@@ -61,11 +80,11 @@ class LayoutScreen extends StatelessWidget {
   SliverAppBar buildAppBar(BuildContext context) {
     return SliverAppBar(
       floating: true,
-      titleSpacing: Responsive.isMobileLarge(context)
+      titleSpacing: ResponsiveWidget.isMobileLarge(context)
           ? appDefaultPadding * 2
           : appDefaultPadding * 4,
       automaticallyImplyLeading: false,
-      actions: Responsive.isTablet(context)
+      actions: ResponsiveWidget.isTablet(context)
           ? [
               Builder(
                 builder: (context) {
@@ -78,7 +97,7 @@ class LayoutScreen extends StatelessWidget {
                 },
               ),
               SizedBox(
-                  width: Responsive.isMobileLarge(context)
+                  width: ResponsiveWidget.isMobileLarge(context)
                       ? appDefaultPadding * 2
                       : appDefaultPadding * 4),
             ]
@@ -93,17 +112,13 @@ class LayoutScreen extends StatelessWidget {
                   const SizedBox(width: appDefaultPadding * 2),
                   const HoverTextButton(text: 'Contact'),
                   SizedBox(
-                      width: Responsive.isMobileLarge(context)
+                      width: ResponsiveWidget.isMobileLarge(context)
                           ? appDefaultPadding * 2
                           : appDefaultPadding * 4),
                 ],
               ),
             ],
-      // centerTitle: Responsive.isTablet(context) ? true : false,
       title: const Row(
-        // mainAxisAlignment: Responsive.isTablet(context)
-        //     ? MainAxisAlignment.center
-        //     : MainAxisAlignment.start,
         children: [
           Icon(Icons.computer_rounded),
           SizedBox(width: appDefaultPadding / 2),
