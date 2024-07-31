@@ -40,26 +40,7 @@ class ProjectsSection extends StatelessWidget {
                 ),
           ),
         ),
-        CarouselWithIndicator(
-          items: projects,
-        ),
-        // CarouselSlider(
-        //   items: projects,
-
-        //   options: CarouselOptions(
-        //     height: Responsive.isTablet(context) ? null : 600,
-        //     viewportFraction: 2,
-        //     initialPage: 0,
-        //     enableInfiniteScroll: true,
-        //     reverse: false,
-        //     autoPlay: true,
-        //     autoPlayInterval: const Duration(seconds: 3),
-        //     autoPlayAnimationDuration: const Duration(milliseconds: 800),
-        //     autoPlayCurve: Curves.fastOutSlowIn,
-        //     enlargeCenterPage: true,
-        //     scrollDirection: Axis.horizontal,
-        //   ),
-        // ),
+        CarouselWithIndicator(items: projects),
       ],
     );
   }

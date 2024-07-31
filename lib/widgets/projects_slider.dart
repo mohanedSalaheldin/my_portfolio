@@ -5,9 +5,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class CarouselWithIndicator extends StatefulWidget {
   final List<Widget> items;
-
   const CarouselWithIndicator({super.key, required this.items});
-
   @override
   State<CarouselWithIndicator> createState() => _CarouselWithIndicatorState();
 }
@@ -35,16 +33,15 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
           }).toList(),
           carouselController: _controller,
           options: CarouselOptions(
-            // height: Responsive.isTablet(context) ? null : 600,
-            viewportFraction: 1.0, // Each item takes up the entire width
+            viewportFraction: 1.0,
             initialPage: 0,
             enableInfiniteScroll: true,
             reverse: false,
-            autoPlay: false,
+            autoPlay: true,
             autoPlayInterval: const Duration(seconds: 3),
             autoPlayAnimationDuration: const Duration(milliseconds: 800),
             autoPlayCurve: Curves.fastOutSlowIn,
-            enlargeCenterPage: false, // Disable the enlarging effect
+            enlargeCenterPage: false, 
             scrollDirection: Axis.horizontal,
             onPageChanged: (index, reason) {
               setState(() {
@@ -72,9 +69,3 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
   }
 }
 
-class Responsive {
-  static bool isTablet(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return size.width > 600 && size.width < 1200;
-  }
-}
