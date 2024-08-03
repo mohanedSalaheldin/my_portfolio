@@ -23,9 +23,12 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
           items: widget.items.map((item) {
             return Builder(
               builder: (BuildContext context) {
+                var width2 = MediaQuery.of(context).size.width;
                 return SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: ResponsiveWidget.isMobile(context) ? 200 : 600,
+                  width: width2,
+                  height: ResponsiveWidget.isMobile(context)
+                      ? null
+                      : (ResponsiveWidget.isTablet(context) ? 600 : 900),
                   child: item,
                 );
               },
@@ -41,7 +44,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
             autoPlayInterval: const Duration(seconds: 3),
             autoPlayAnimationDuration: const Duration(milliseconds: 800),
             autoPlayCurve: Curves.fastOutSlowIn,
-            enlargeCenterPage: false, 
+            enlargeCenterPage: false,
             scrollDirection: Axis.horizontal,
             onPageChanged: (index, reason) {
               setState(() {
@@ -68,4 +71,3 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
     );
   }
 }
-

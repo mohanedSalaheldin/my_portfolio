@@ -15,7 +15,6 @@ class AboutSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveWidget.isTablet(context)
         ? const SizedBox(
-            // height: 500,
             child: Column(
               children: [
                 FirstHalfWithTexts(),
@@ -124,8 +123,8 @@ class FirstHalfWithTexts extends StatelessWidget {
                     AutoSlideText(),
                   ],
                 )
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+              : Wrap(
+                  // mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       'Hey folks, I\'m ',

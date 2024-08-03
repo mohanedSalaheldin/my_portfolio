@@ -18,6 +18,7 @@ ThemeData darkTheme = ThemeData(
   ),
   useMaterial3: true,
   scaffoldBackgroundColor: HexColor('#0c0c0d'),
+  drawerTheme: DrawerThemeData(backgroundColor: HexColor('#0c0c0d')),
   fontFamily: 'MavenPro',
   textTheme: TextTheme(
     bodyLarge: const TextStyle(

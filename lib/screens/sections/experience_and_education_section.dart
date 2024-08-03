@@ -33,6 +33,7 @@ class ExperienceAndEducationSection extends StatelessWidget {
                     company: 'Freelance',
                     describtion:
                         'Developed custom applications for clients and collaborated with colleagues on tasks to build Flutter apps.',
+                    hasNext: false,
                   ),
                 ],
               ),
@@ -48,6 +49,7 @@ class ExperienceAndEducationSection extends StatelessWidget {
                     company: 'SUST',
                     describtion:
                         'Currently studying Software Engineering and expected to graduate by the end of 2025.',
+                    // hasNext: false,
                   ),
                   ExperienceItem(
                     year: '2023',
@@ -55,6 +57,7 @@ class ExperienceAndEducationSection extends StatelessWidget {
                     company: 'UoPeople',
                     describtion:
                         'Currently studying CS online at the University of the People, with an expected graduation by the end of 2027.',
+                    hasNext: false,
                   ),
                 ],
               ),
@@ -81,6 +84,7 @@ class ExperienceAndEducationSection extends StatelessWidget {
                     company: 'Freelance',
                     describtion:
                         'Developed custom applications for clients and collaborated with colleagues on tasks to build Flutter apps.',
+                    hasNext: false,
                   ),
                 ],
               ),
@@ -102,6 +106,7 @@ class ExperienceAndEducationSection extends StatelessWidget {
                     company: 'UoPeople',
                     describtion:
                         'Currently studying CS online at the University of the People, with an expected graduation by the end of 2027.',
+                    hasNext: false,
                   ),
                 ],
               ),

@@ -4,6 +4,7 @@ import 'package:my_portfolio/responsive.dart';
 import '../widgets/hover_text_button.dart';
 import '../widgets/layout_sized_box.dart';
 import 'sections/about_section.dart';
+import 'sections/contact_info_section.dart';
 import 'sections/experience_and_education_section.dart';
 import 'sections/projects_section.dart';
 
@@ -35,13 +36,16 @@ class LayoutScreen extends StatelessWidget {
           return [buildAppBar(context)];
         },
         body: Container(
-          constraints: const BoxConstraints(maxWidth: 1200),
+          constraints: const BoxConstraints(maxWidth: 1440),
           child: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: ResponsiveWidget.isTablet(context)
-                      ? appDefaultPadding * 2
-                      : appDefaultPadding * 4),
+                horizontal: ResponsiveWidget.isTablet(context)
+                    ? (ResponsiveWidget.isMobile(context)
+                        ? appDefaultPadding
+                        : appDefaultPadding * 2)
+                    : appDefaultPadding * 4,
+              ),
               child: const Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,6 +56,8 @@ class LayoutScreen extends StatelessWidget {
                   ProjectsSection(),
                   LayoutSizedBox(),
                   ExperienceAndEducationSection(),
+                  LayoutSizedBox(),
+                  ContactInfoSection(),
                   LayoutSizedBox(),
                 ],
               ),
@@ -66,7 +72,9 @@ class LayoutScreen extends StatelessWidget {
     return SliverAppBar(
       floating: true,
       titleSpacing: ResponsiveWidget.isTablet(context)
-          ? appDefaultPadding * 2
+          ? (ResponsiveWidget.isMobile(context)
+              ? appDefaultPadding
+              : appDefaultPadding * 2)
           : appDefaultPadding * 4,
       automaticallyImplyLeading: false,
       actions: ResponsiveWidget.isTablet(context)
@@ -82,9 +90,12 @@ class LayoutScreen extends StatelessWidget {
                 },
               ),
               SizedBox(
-                  width: ResponsiveWidget.isTablet(context)
-                      ? appDefaultPadding * 2
-                      : appDefaultPadding * 4),
+                width: ResponsiveWidget.isTablet(context)
+                    ? (ResponsiveWidget.isMobile(context)
+                        ? appDefaultPadding
+                        : appDefaultPadding * 2)
+                    : appDefaultPadding * 4,
+              ),
             ]
           : [
               Row(
