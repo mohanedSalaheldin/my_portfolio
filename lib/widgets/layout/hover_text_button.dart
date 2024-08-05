@@ -1,24 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
-
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<MyWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
+import 'package:my_portfolio/constants.dart';
 
 class HoverTextButton extends StatefulWidget {
   final String text;
+  final void Function() onTap;
 
-  const HoverTextButton({super.key, required this.text});
+  const HoverTextButton({super.key, required this.text, required this.onTap});
 
   @override
   State<HoverTextButton> createState() => _HoverTextButtonState();
@@ -59,37 +47,40 @@ class _HoverTextButtonState extends State<HoverTextButton>
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => _controller.forward(),
-      onExit: (_) => _controller.reverse(),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          SlideTransition(
-            position: _whiteTextOffset,
-            child: FadeTransition(
-              opacity: _fadeOut,
-              child: Text(
-                widget.text,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: HexColor('#c9c9c9'),
-                    ),
+    return InkWell(
+      onTap: widget.onTap,
+      child: MouseRegion(
+        onEnter: (_) => _controller.forward(),
+        onExit: (_) => _controller.reverse(),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            SlideTransition(
+              position: _whiteTextOffset,
+              child: FadeTransition(
+                opacity: _fadeOut,
+                child: Text(
+                  widget.text,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: HexColor('#c9c9c9'),
+                      ),
+                ),
               ),
             ),
-          ),
-          SlideTransition(
-            position: _yellowTextOffset,
-            child: FadeTransition(
-              opacity: _fadeIn,
-              child: Text(
-                widget.text,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: HexColor('#ffc107'),
-                    ),
+            SlideTransition(
+              position: _yellowTextOffset,
+              child: FadeTransition(
+                opacity: _fadeIn,
+                child: Text(
+                  widget.text,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: appDefaultYallow,
+                      ),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

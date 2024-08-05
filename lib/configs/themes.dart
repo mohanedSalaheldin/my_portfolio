@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 ThemeData darkTheme = ThemeData(
@@ -9,6 +8,7 @@ ThemeData darkTheme = ThemeData(
   ),
   appBarTheme: AppBarTheme(
     backgroundColor: HexColor('#0c0c0d'),
+    elevation: 0,
     titleTextStyle: const TextStyle(
       fontFamily: 'MavenPro',
       fontSize: 20.0,

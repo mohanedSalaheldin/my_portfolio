@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:my_portfolio/constants.dart';
 import 'package:my_portfolio/responsive.dart';
 
 class AutoSlideText extends StatefulWidget {
@@ -71,7 +72,7 @@ class _AutoSlideTextState extends State<AutoSlideText>
         child: Text(
           widget.texts[_currentIndex],
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                color: HexColor('#ffc107'),
+                color: appDefaultYallow,
                 fontSize: ResponsiveWidget.isMobileLarge(context) ? 34.0 : 36.0,
               ),
         ),

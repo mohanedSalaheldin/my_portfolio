@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/constants.dart';
 import 'package:my_portfolio/responsive.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -16,6 +17,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
 
   @override
   Widget build(BuildContext context) {
+    var width2 = MediaQuery.of(context).size.width;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -23,7 +25,6 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
           items: widget.items.map((item) {
             return Builder(
               builder: (BuildContext context) {
-                var width2 = MediaQuery.of(context).size.width;
                 return SizedBox(
                   width: width2,
                   height: ResponsiveWidget.isMobile(context)
@@ -39,6 +40,7 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
             viewportFraction: 1.0,
             initialPage: 0,
             enableInfiniteScroll: true,
+            padEnds: false,
             reverse: false,
             autoPlay: true,
             autoPlayInterval: const Duration(seconds: 3),
@@ -57,11 +59,11 @@ class _CarouselWithIndicatorState extends State<CarouselWithIndicator> {
         AnimatedSmoothIndicator(
           activeIndex: _current,
           count: widget.items.length,
-          effect: ScrollingDotsEffect(
+          effect: WormEffect(
             dotWidth: 8.0,
             dotHeight: 8.0,
-            activeDotColor: Theme.of(context).primaryColor,
-            dotColor: Colors.grey,
+            activeDotColor: appDefaultYallow,
+            dotColor: Colors.yellow.withOpacity(.3),
           ),
           onDotClicked: (index) {
             _controller.animateToPage(index);

@@ -80,7 +80,6 @@ class ExperienceItem extends StatelessWidget {
                 mobile: SizedBox(
                   width: 190,
                   child: Wrap(
-                    // crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
                         '$title ',

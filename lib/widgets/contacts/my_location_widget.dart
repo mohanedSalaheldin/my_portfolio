@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
+import 'package:my_portfolio/models/contacts.dart';
 
 class MyLocationWidget extends StatelessWidget {
-  const MyLocationWidget({
+   MyLocationWidget({
     super.key,
   });
 
-  final LatLng latLng = const LatLng(31.2001, 29.9187);
+  final LatLng latLng = LatLng(MyContacts.myLat, MyContacts.myLong);
   final String mapTilerApiKey = 'jr7zyfoow1WxdP0v4vGU';
 
   @override

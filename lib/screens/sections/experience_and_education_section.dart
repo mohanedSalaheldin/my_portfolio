@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/constants.dart';
 import 'package:my_portfolio/responsive.dart';
-import 'package:my_portfolio/widgets/experience_item.dart';
+import 'package:my_portfolio/widgets/experiences/experience_item.dart';
+import '../../widgets/shared/title_widget.dart';
 
 class ExperienceAndEducationSection extends StatelessWidget {
   const ExperienceAndEducationSection({
@@ -12,8 +13,6 @@ class ExperienceAndEducationSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveWidget.isTablet(context)
         ? const Column(
-            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,7 +48,6 @@ class ExperienceAndEducationSection extends StatelessWidget {
                     company: 'SUST',
                     describtion:
                         'Currently studying Software Engineering and expected to graduate by the end of 2025.',
-                    // hasNext: false,
                   ),
                   ExperienceItem(
                     year: '2023',
@@ -112,43 +110,5 @@ class ExperienceAndEducationSection extends StatelessWidget {
               ),
             ],
           );
-  }
-}
-
-class TitleWidget extends StatelessWidget {
-  const TitleWidget({
-    super.key,
-    required this.title,
-  });
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return ResponsiveWidget(
-      desktop: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 34,
-          fontWeight: FontWeight.w600,
-          color: Colors.white,
-        ),
-      ),
-      tablet: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 32,
-          fontWeight: FontWeight.w600,
-          color: Colors.white,
-        ),
-      ),
-      mobile: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 22,
-          fontWeight: FontWeight.w600,
-          color: Colors.white,
-        ),
-      ),
-    );
   }
 }

@@ -12,6 +12,6 @@ class LayoutSizedBox extends StatelessWidget {
     return SizedBox(
         height: ResponsiveWidget.isMobileLarge(context)
             ? appDefaultPadding * 3
-            : appDefaultPadding * 6);
+            : appDefaultPadding * 7);
   }
 }

@@ -5,9 +5,11 @@ class DefualtAppButton extends StatelessWidget {
   const DefualtAppButton({
     super.key,
     required this.backgroundColor,
-    // required this.contentColor,
     required this.content,
+    required this.onTap,
   });
+
+  final Function() onTap;
   final Color backgroundColor;
   // final Color contentColor;
   final Widget content;
@@ -16,7 +18,7 @@ class DefualtAppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(30),
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: appDefaultPadding),
         height: 50,
