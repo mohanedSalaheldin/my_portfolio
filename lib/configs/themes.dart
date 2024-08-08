@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:my_portfolio/constants.dart';
 
 ThemeData darkTheme = ThemeData(
   textButtonTheme: TextButtonThemeData(
@@ -7,7 +8,7 @@ ThemeData darkTheme = ThemeData(
         foregroundColor: WidgetStatePropertyAll(HexColor('#bbd9d0'))),
   ),
   appBarTheme: AppBarTheme(
-    backgroundColor: HexColor('#0c0c0d'),
+    backgroundColor: appDefaultBG,
     elevation: 0,
     titleTextStyle: const TextStyle(
       fontFamily: 'MavenPro',
@@ -17,7 +18,7 @@ ThemeData darkTheme = ThemeData(
     ),
   ),
   useMaterial3: true,
-  scaffoldBackgroundColor: HexColor('#0c0c0d'),
+  scaffoldBackgroundColor: appDefaultBG,
   drawerTheme: DrawerThemeData(backgroundColor: HexColor('#0c0c0d')),
   fontFamily: 'MavenPro',
   textTheme: TextTheme(

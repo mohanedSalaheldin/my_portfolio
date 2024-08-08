@@ -21,6 +21,7 @@ class CustomTextFormField extends StatelessWidget {
       controller: controller,
       validator: validator,
       maxLines: maxLines,
+      enabled: false,
       cursorColor: HexColor('#ffc107'),
       style: const TextStyle(
         fontSize: 14,

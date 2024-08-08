@@ -12,7 +12,7 @@ class ContactOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [               
+      children: [
         Icon(
           iconData,
           size: 18,
@@ -20,7 +20,7 @@ class ContactOption extends StatelessWidget {
         const SizedBox(
           width: 2.0,
         ),
-        Text(
+        SelectableText(
           contact,
           style: const TextStyle(
             fontSize: 14,

@@ -14,17 +14,13 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Mohaned Portfolio',
       debugShowCheckedModeBanner: false,
       theme: darkTheme,
-      home: Container(
-          constraints: const BoxConstraints(maxWidth: 1440.0),
-          child:  LayoutScreen()),
+      home: LayoutScreen(),
     );
   }
 }

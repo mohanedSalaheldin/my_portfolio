@@ -13,6 +13,8 @@ class FirstHalfWithTexts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    var intro =
+        'I design and develop mobile apps with a focus on user experience, intuitive interfaces, and innovative web solutions.';
     return SizedBox(
       height: ResponsiveWidget.isMobileLarge(context) ? 440 : 370,
       child: Column(
@@ -62,9 +64,7 @@ class FirstHalfWithTexts extends StatelessWidget {
                   ],
                 ),
           Text(
-            ResponsiveWidget.isTablet(context)
-                ? 'Building a successful product is a challenge. I am highly energetic in userexperience design, interfaces and web development.'
-                : 'Building a successful product is a challenge. I am highly energetic in user experience design, interfaces and web development.',
+            intro,
             style: Theme.of(context).textTheme.bodySmall!.copyWith(
                   color: HexColor('#919191'),
                 ),

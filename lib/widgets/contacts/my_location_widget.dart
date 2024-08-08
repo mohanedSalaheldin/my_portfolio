@@ -5,7 +5,7 @@ import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_ti
 import 'package:my_portfolio/models/contacts.dart';
 
 class MyLocationWidget extends StatelessWidget {
-   MyLocationWidget({
+  MyLocationWidget({
     super.key,
   });
 

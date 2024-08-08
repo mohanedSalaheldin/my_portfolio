@@ -12,26 +12,28 @@ class ProjectsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // var titleDesk = 'Things I have designed for digital\n media agencies';
+    var title = "Projects I’ve Crafted in Mobile Development";
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         ResponsiveWidget(
           desktop: Text(
-            'Things I have designed for digital\n media agencies',
+            title,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                color: HexColor('#ffffff'), fontSize: 38.0, height: 1.0),
+                color: HexColor('#ffffff'), fontSize: 34.0, height: 1.0),
           ),
           tablet: Text(
-            'Things I have designed for digital media agencies',
+            title,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   color: HexColor('#ffffff'),
-                  fontSize: 34.0,
+                  fontSize: 31.0,
                 ),
           ),
           mobile: Text(
-            'Things I have designed for digital media agencies',
+            title,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   color: HexColor('#ffffff'),
@@ -39,10 +41,8 @@ class ProjectsSection extends StatelessWidget {
                 ),
           ),
         ),
-        Container(
-          // color: Colors.red,
-          child: CarouselWithIndicator(items: projects),
-        ),
+        const SizedBox(height: 16.0),
+        CarouselWithIndicator(items: projects),
       ],
     );
   }

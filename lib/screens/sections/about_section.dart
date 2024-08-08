@@ -84,9 +84,7 @@ class DownloadResumeBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefualtAppButton(
       onTap: () {
-        String resumeURL =
-            'https://drive.google.com/file/d/17WiBGSnzgH7i3qI7hnFQPPWW25bpSvox/view?usp=sharing';
-        js.context.callMethod('open', [resumeURL]);
+        js.context.callMethod('open', [MyContacts.resumeURL]);
       },
       backgroundColor: HexColor('#474559'),
       content: Row(

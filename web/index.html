@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
+ 
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
@@ -31,10 +19,44 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>my_portfolio</title>
+  <title>Mohaned Portfolio</title>
   <link rel="manifest" href="manifest.json">
+
+  <!-- Add custom styles here -->
+  <style>
+    /* Set the background color and text color for the loading screen */
+    body {
+      background-color: #0c0c0d; /* Dark background color */
+      color: #ffc107; /* Text color */
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* Full viewport height */
+    }
+
+    /* Spinner styles */
+    .spinner {
+      border: 4px solid #0c0c0d; /* Background color of the spinner */
+      border-top: 4px solid #ffc107; /* Color of the spinner's moving part */
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
+  <div class="spinner"></div> <!-- Add the spinner -->
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
