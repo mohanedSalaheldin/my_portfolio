@@ -1,8 +1,8 @@
-###My Portfolio
+### My Portfolio
 
 This repository contains my personal portfolio, developed using Flutter. The portfolio showcases my skills, projects, and experiences as a Flutter developer, with a focus on user experience, interfaces, and web development.
 
-###About the Project
+### About the Project
 
 This project is a Flutter-based portfolio application designed to provide a clean, simple, and functional interface that highlights my work and capabilities. It's a starting point for anyone interested in creating a mobile-friendly portfolio using Flutter.
 
